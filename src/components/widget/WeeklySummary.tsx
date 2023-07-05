@@ -131,8 +131,9 @@ const WeeklySummary: FC<CardProps> = (props): ReactElement => {
     const FooterIcon = () => <BoltIcon style={{ fontSize: 18, color: COLOR_ORANGE }} />
 
     const carouselItems: CarouselItems = [
-        <TimeCard value={70} text="You have studied 10m/1hr today" />,
-        <TimeCard value={20} text="You have studied 5m/1hr today" />
+        <TimeCard type="mid" value={70} text="You have studied 10m/1hr today" />,
+        <TimeCard type="fire" text="You have studied 5m/1hr today" />,
+        <TimeCard type="zap" text="Your rating and score have improved!" />
     ]
     return (
         <div style={{ position: "relative" }}>

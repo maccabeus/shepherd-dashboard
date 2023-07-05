@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { COLOR_LIGHT_GREY, COLOR_WHITE, PADDING_SMALL } from '../../configs/StyleConstants';
 import MidIcon from "../../assets/images/mid.png"
+import Zap from "../../assets/images/zap.png"
+import Fire from "../../assets/images/fire.png"
 import CircularProgressbar from '../chart/CircularProgress';
 import BodyText from '../text/BodyText';
 
@@ -60,24 +62,42 @@ const useStyles = makeStyles({
 });
 
 export interface TimeCardProps {
-  value: number;
+  type: "mid" | "zap" | "fire"
+  value?: number;
   text?: string
 }
 
-const CustomProgress: FC<TimeCardProps> = ({ value, text }) => {
+const CustomProgress: FC<TimeCardProps> = ({ value, text, type }) => {
   const classes = useStyles();
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.card}>
         <div className={classes.cardInner}>
           <div className={classes.cardInnerContent}>
-            <img className={classes.icon} src={MidIcon} alt="icon" />
-            <CircularProgressbar progress={value} />
+            {type === "mid" && (
+              <>
+                <img className={classes.icon} src={MidIcon} alt="icon" />
+                <CircularProgressbar progress={value ?? 0} />
+              </>
+            )}
+            {type === "zap" && (
+              <>
+                <img className={classes.icon} src={Zap} alt="icon" />
+                <CircularProgressbar progress={value ?? 0} />
+              </>
+            )}
+            {type === "fire" && (
+              <>
+                <img className={classes.icon} src={Fire} alt="icon" />
+                <CircularProgressbar progress={value ?? 0} />
+              </>
+            )}
           </div>
         </div>
       </div>
       {text && <div className={classes.text}>
-        <BodyText size="body">You have studied 10/1hr today</BodyText>
+        <BodyText size="body">{text}</BodyText>
       </div>
       }
     </div>
