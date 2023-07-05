@@ -46,7 +46,7 @@ const ActivityFeed: FC<CardProps> = (props): ReactElement => {
             showHeader
             title={<TitleText size="cardMedium" fontWeight={500}>Activity Feed</TitleText>}
             icon={<HeaderIcon />}
-            action={<ActionHeader />}
+            // action={<ActionHeader />}
         >
             <AppTimeline>
                 <AppTimelineItem buttonText='document.pdf'
