@@ -1,4 +1,4 @@
-# A simle Dashboard
+# A simple Dashboard
 This application was build with `React` and `Material UI`.
 
 The default application `port` is `3000`.
