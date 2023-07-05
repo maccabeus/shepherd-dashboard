@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme: Theme) => {
         paddingLeft: PADDING_SIDE,
         marginBottom: CARD_MARGIN_SMALL,
         cursor: "pointer",
-        transition: "opacity 3s ease",
+        transition: "0.1s cubic-bezier(0.165, 0.84, 0.44, 1)",
         '&:hover': {
             borderLeftWidth: 8,
         },
