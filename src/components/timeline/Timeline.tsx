@@ -21,6 +21,9 @@ export const AppTimeline: FC<TimelineProps> = (props): ReactElement => {
                     flex: 0,
                     padding: 0,
                 },
+                [`& .${timelineItemClasses.root}:hover`]: {
+                    transition: "opacity 3s ease",
+                },
             }} >
             {props.children}
         </Timeline>

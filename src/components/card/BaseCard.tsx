@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
         cursor: "pointer",
         overflowY: 'auto',
         '-webkit-overflow-scrolling': 'touch',
+        transition: "opacity 0.10s ease",
+        '&:hover': {
+            borderWidth:2,
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        },
     },
     cardHeader: {
         marginBottom: 0,
