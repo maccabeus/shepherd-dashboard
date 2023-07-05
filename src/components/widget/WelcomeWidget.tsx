@@ -1,9 +1,49 @@
 import React, { useState, useEffect, ReactElement, FC } from 'react';
 import { WeatherLogo } from './icon/Weather';
-import { useWelcomeWidgetStyles } from './styles/WelcomeWidgetStyle';
 import TitleText from '../text/TitleText';
 import BodyText from '../text/BodyText';
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { PADDING_TINY } from '../../configs/StyleConstants';
 
+
+const useWelcomeWidgetStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        container: {
+            display: " flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+            padding: PADDING_TINY,
+            width: "auto",
+            marginLeft: 0,
+        },
+        text: {
+            display: "flex",
+            marginBottom: PADDING_TINY,
+        },
+        info: {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "flex-start",
+        },
+        dot: {
+            borderRadius: "100%",
+            width: 5,
+            height: 5,
+            backgroundColor: "gray",
+            marginLeft: 5,
+            marginRight: 5
+        },
+        icon: {
+            paddingRight: 5
+
+        },
+        infoItem: {
+            paddingRight: 5
+        }
+    })
+)
 
 
 export const WelcomeWidget: FC<any> = (props): ReactElement => {
@@ -32,10 +72,10 @@ export const WelcomeWidget: FC<any> = (props): ReactElement => {
                 <div className={styles.icon}><WeatherLogo /></div>
                 <div className={styles.dot}></div>
                 <div className={styles.infoItem}>
-                    <BodyText size='bodySmall' >Tuesday, July 21 </BodyText> 
+                    <BodyText size='small' fontWeight={420} >Tuesday, July 21 </BodyText>
                 </div>
                 <div className={styles.dot}></div>
-                <div className={styles.infoItem}> <BodyText  size='bodySmall'>{currentTime}</BodyText></div>
+                <div className={styles.infoItem}> <BodyText fontWeight={420} size='small'>{currentTime}</BodyText></div>
             </div>
         </div>
     );

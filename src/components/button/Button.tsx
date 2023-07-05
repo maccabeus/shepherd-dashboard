@@ -1,27 +1,34 @@
 import { FC, ReactChild, ReactChildren, ReactElement } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { BASE_APP_COLOR_WHITE, BUTTON_FONT_COLOR_MAIN, BUTTON_FONT_COLOR_WHITE, BUTTON_FONT_PADDING, BUTTON_FONT_SIZE, COLOR_GREY, FONT_BODY, FONT_LARGE, FONT_MEDIUM, FONT_SMALL, FONT_TINY } from "../../configs/StyleConstants";
+import { BASE_APP_COLOR, BASE_APP_COLOR_WHITE, BUTTON_BORDER_RADIUS, BUTTON_FONT_COLOR_MAIN, BUTTON_FONT_COLOR_WHITE, BUTTON_FONT_PADDING, BUTTON_FONT_SIZE, BUTTON_WIDTH, COLOR_GREY, COLOR_LIGHT_GREEN, COLOR_LIGHT_GREY, FONT_BODY, FONT_LARGE, FONT_MEDIUM, FONT_SMALL, FONT_TINY } from "../../configs/StyleConstants";
 
 export const useTextStyles = makeStyles((theme: Theme) => {
 
     // Define base stye for all buttons
     const baseStyle: any = {
         display: "flex",
+        flexGrow:1,
         alignItems: "center",
         justifyContent: "center",
         padding: BUTTON_FONT_PADDING,
         fontSize: BUTTON_FONT_SIZE,
+        borderRadius: BUTTON_BORDER_RADIUS,
+        width: BUTTON_WIDTH,
     }
     return (
         createStyles({
             white: {
                 ...baseStyle,
                 backgroundColor: BASE_APP_COLOR_WHITE,
-
+                borderColor: COLOR_LIGHT_GREY
             },
             main: {
                 ...baseStyle,
-                backgroundColor: BASE_APP_COLOR_WHITE,
+                backgroundColor: BASE_APP_COLOR,
+            },
+            icon: {
+                marginRight: 5,
+                marginTop:3
             },
         })
     )
@@ -29,7 +36,7 @@ export const useTextStyles = makeStyles((theme: Theme) => {
 )
 
 export interface ElementProps {
-    border: "solid" | "dotted"
+    border: "solid" | "dotted" | "dashed"
     color: "white" | "main"
     icon?: Array<ReactChild> | ReactElement | ReactChildren
     children?: Array<ReactChild> | ReactElement | ReactChildren | string
@@ -55,7 +62,7 @@ const Button: FC<ElementProps> = (props): ReactElement => {
             color: fontColor,
             borderStyle: border !== undefined ? border : "solid"
         }} >
-            <div>{icon}</div>
+            <div className={styles.icon}>{icon}</div>
             {children}
         </div>
     )

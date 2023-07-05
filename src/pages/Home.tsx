@@ -1,4 +1,5 @@
 import { FC, ReactElement } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import MainLayout from "../components/layout/MainLayout";
 import SideNavigation from "../components/layout/SideNavigation";
 import Body from "../components/layout/Body";
@@ -7,53 +8,78 @@ import WelcomeWidget from "../components/widget/WelcomeWidget";
 import Header from "../components/layout/Header";
 import ResponsiveBarChart from "../components/chart/BarChart";
 import { Grid } from "@material-ui/core";
-import WeeklySummary from "../components/card/WeeklySummary";
-import ActivityFeed from "../components/card/ActivityFeed";
+import WeeklySummary from "../components/widget/WeeklySummary";
+import ActivityFeed from "../components/widget/ActivityFeed";
+import Schedule from "../components/widget/Schedule";
+
+const useStyles = makeStyles((theme) => ({
+  dashboardContent: {
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gap: theme.spacing(2),
+  },
+  dashboardRow: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateColumns: "1fr",
+    },
+  },
+}));
 
 const Dashboard: FC<any> = (): ReactElement => {
+  const classes = useStyles();
 
-    const data = [
-        { name: 'Bio', value: 25 },
-        { name: 'Phy', value: 40 },
-        { name: 'Chem', value: 35 },
-        { name: 'Eco', value: 35 },
-        { name: 'Eng', value: 35 },
-        { name: 'Bus', value: 35 },
-        { name: 'Sci', value: 35 },
-        { name: 'Lit', value: 35 },
-    ];
-    return (
-        <MainLayout>
-            <SideNavigation>
-                <SideMenu />
-            </SideNavigation>
-            <Body>
-                <Header>
-                    <WelcomeWidget />
-                </Header>
-                <div>
-                    {/* ===============First rows stars here ============== */}
-                    <Grid container spacing={4}>
-                        <Grid item xs={6} md={5}>
-                            <WeeklySummary />
-                        </Grid>
-                        <Grid item xs={6} md={7}>
-                            <ResponsiveBarChart data={data} />
-                        </Grid>
-                    </Grid>
-                    {/* ===============First row ends here ============== */}
-                    <Grid container spacing={4}>
-                        <Grid item xs={6} md={8}>
-                            <ActivityFeed />
-                        </Grid>
-                        <Grid item xs={6} md={4}>
-                            <ResponsiveBarChart data={data} />
-                        </Grid>
-                    </Grid>
-                    {/* ===============Second  row ends here ============== */}
-                </div>
-            </Body>
-        </MainLayout>
-    )
-}
+  const data = [
+    { name: 'Bio', value: 25 },
+    { name: 'Phy', value: 40 },
+    { name: 'Chem', value: 35 },
+    { name: 'Eco', value: 35 },
+    { name: 'Eng', value: 35 },
+    { name: 'Bus', value: 35 },
+    { name: 'Sci', value: 35 },
+    { name: 'Lit', value: 35 },
+  ];
+
+  return (
+    <MainLayout>
+      <SideNavigation>
+        <SideMenu />
+      </SideNavigation>
+      <Body>
+        <Header>
+          <WelcomeWidget />
+        </Header>
+        <div className={classes.dashboardContent}>
+          <div className={classes.dashboardRow}>
+            {/* First row starts here */}
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6}>
+                <WeeklySummary />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <ResponsiveBarChart data={data} />
+              </Grid>
+            </Grid>
+            {/* First row ends here */}
+          </div>
+          <div className={classes.dashboardRow}>
+            {/* Second row starts here */}
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={8}>
+                <ActivityFeed />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Schedule />
+              </Grid>
+            </Grid>
+            {/* Second row ends here */}
+          </div>
+        </div>
+      </Body>
+    </MainLayout>
+  );
+};
+
 export default Dashboard;

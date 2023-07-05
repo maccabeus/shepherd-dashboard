@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
-import { Card, CardContent, makeStyles } from '@material-ui/core';
+import { CardContent, makeStyles } from '@material-ui/core';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { CARD_BORDER_RADIUS, CARD_PADDING, COLOR_LIGHT_GREY, BASE_APP_COLOR, CARD_MARGIN, CARD_MAX_WIDTH, CARD_SHADOW } from '../../configs/StyleConstants';
+import { BASE_APP_COLOR } from '../../configs/StyleConstants';
 import TitleText from '../text/TitleText';
 import BaseCard from '../card/BaseCard';
 
@@ -18,10 +18,15 @@ export interface BarChartProps {
 const useStyles = makeStyles((theme) => ({
     cardContent: {
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
+        flexDirection: "column",
+        flex: 1,
+        alignItems: 'start',
+        justifyContent: "center",
     },
     chartContainer: {
+        display: "flex",
+        marginRight: "auto",
+        marginLeft: -40,
         width: '100%',
         height: 250,
     },
@@ -32,8 +37,11 @@ const ResponsiveBarChart: FC<BarChartProps> = (props): ReactElement => {
     const classes = useStyles();
     const { data } = props
     return (
-        <BaseCard >
-            <TitleText size='medium'>Quiz Performance</TitleText>
+        <BaseCard
+            padding={{ top: 0 }}
+            showHeader
+            title={<TitleText size="card">Quiz Performance</TitleText>}
+        >
             <CardContent className={classes.cardContent}>
                 <div className={classes.chartContainer}>
                     <ResponsiveContainer>
@@ -42,7 +50,7 @@ const ResponsiveBarChart: FC<BarChartProps> = (props): ReactElement => {
                             <XAxis dataKey="name" />
                             <YAxis tickFormatter={(value) => `${value}%`} />
                             <Tooltip />
-                            <Bar dataKey="value" fill={`${BASE_APP_COLOR}`} barSize={20} />
+                            <Bar dataKey="value" fill={`${BASE_APP_COLOR}`} barSize={15} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>

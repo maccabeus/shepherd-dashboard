@@ -2,5 +2,11 @@
 .user {
     border-style: none;
     align-self: baseline;
-    vertical-align:middle
+    vertical-align:middle;
+    align-items: start;
+    border-style: dashed;
+    overflow-x: auto;
+    cursor: pointer;
+    text-transform: uppercase;
+
 }
