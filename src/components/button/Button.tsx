@@ -7,7 +7,7 @@ export const useTextStyles = makeStyles((theme: Theme) => {
     // Define base stye for all buttons
     const baseStyle: any = {
         display: "flex",
-        flexGrow:1,
+        flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
         padding: BUTTON_FONT_PADDING,
@@ -20,7 +20,12 @@ export const useTextStyles = makeStyles((theme: Theme) => {
             white: {
                 ...baseStyle,
                 backgroundColor: BASE_APP_COLOR_WHITE,
-                borderColor: COLOR_LIGHT_GREY
+                borderColor: COLOR_LIGHT_GREY,
+                transition: "opacity 0.05s ease-in-out",
+                '&:hover': {
+                    backgroundColor: COLOR_LIGHT_GREY,
+                    boxShadow: "0 0 4px rgba(0, 0, 0, 0.2)",
+                },
             },
             main: {
                 ...baseStyle,
@@ -28,7 +33,7 @@ export const useTextStyles = makeStyles((theme: Theme) => {
             },
             icon: {
                 marginRight: 5,
-                marginTop:3
+                marginTop: 3
             },
         })
     )

@@ -1,5 +1,5 @@
 import { FC, ReactChild, ReactChildren, ReactElement } from "react";
-import { COLOR_LIGHT_GREY, COLOR_LIGHT_ORANGE} from "../../configs/StyleConstants";
+import { COLOR_GREY, COLOR_LIGHT_GREY, COLOR_LIGHT_ORANGE } from "../../configs/StyleConstants";
 import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
@@ -19,10 +19,7 @@ export const AppTimeline: FC<TimelineProps> = (props): ReactElement => {
             sx={{
                 [`& .${timelineItemClasses.root}:before`]: {
                     flex: 0,
-                    padding: 0,
-                },
-                [`& .${timelineItemClasses.root}:hover`]: {
-                    transition: "opacity 3s ease",
+                    padding: 0
                 },
             }} >
             {props.children}
@@ -41,20 +38,23 @@ export interface TimelineItemProps {
 export const AppTimelineItem: FC<TimelineItemProps> = (props): ReactElement => {
 
     const { timeSlot, children, button, icon } = props;
-    
+
     const customDotStyle: any = {
         m: 0,
-        display:"flex",
+        display: "flex",
         bgcolor: COLOR_LIGHT_ORANGE,
         boxShadow: "none",
-        padding:1,
-        maxWidth:40,
-        maxHeight:40,
+        padding: 1,
+        maxWidth: 40,
+        maxHeight: 40,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
     }
-    const customLineStyle: any = { m: 0, bgcolor: COLOR_LIGHT_GREY }
-    
+    const customLineStyle: any = {
+        m: 0,
+        bgcolor: COLOR_LIGHT_GREY,
+    }
+
     return (
         <TimelineItem>
             <TimelineSeparator>

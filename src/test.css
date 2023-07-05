@@ -8,5 +8,6 @@
     overflow-x: auto;
     cursor: pointer;
     text-transform: uppercase;
+    transition:  ease-in-out 
 
 }
