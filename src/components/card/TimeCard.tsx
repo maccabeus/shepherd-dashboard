@@ -15,6 +15,8 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
+    textSizeAdjust: "auto",
   },
 
   card: {
@@ -57,6 +59,7 @@ const useStyles = makeStyles({
   },
   text: {
     display: "flex",
+    flexDirection: "column",
     maxWidth: "100%",
     marginTop: PADDING_SMALL
   }
@@ -98,17 +101,14 @@ const CustomProgress: FC<TimeCardProps> = ({ value, text, type, title }) => {
           </div>
         </div>
       </div>
-      {title && <div className={classes.text}>
-        <TitleText size="small">{text}</TitleText>
+      <div>
       </div>
-      }
-      {text && <div className={classes.text}>
-        <BodyText size="body">{text}</BodyText>
+      <div className={classes.text}>
+        {title && <TitleText size="small">{title}</TitleText>}
+        {text && <BodyText size="body">{text}</BodyText>}
       </div>
-      }
+
     </div>
-
-
   );
 };
 

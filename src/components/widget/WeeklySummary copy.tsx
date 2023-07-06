@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     contentLeftHeader: {
         display: "flex",
         flexDirection: "row",
-        marginTop:10,
         marginBottom:5
     },
     contentLeftHeaderIcon: {
@@ -72,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
         flex: 1,
         flexDirection: "column",
         height: "inherit",
-        padding: 0
+        padding: 0,
     },
     timeCard: {
         display: "flex",
@@ -131,7 +130,7 @@ const WeeklySummary: FC<CardProps> = (props): ReactElement => {
         <TimeCard type="mid" value={70} text="You have studied 10m/1hr today" />,
         <TimeCard type="fire"
          text="You have studied 5m/1hr today" 
-         title="You've learnt for 5 hours this week"
+         title="You spent 5 hours learning this week"
          />,
         <TimeCard type="zap"
             title="You're on 3 days streak"
@@ -141,7 +140,7 @@ const WeeklySummary: FC<CardProps> = (props): ReactElement => {
     return (
         <div style={{ position: "relative" }}>
             <BaseCard
-                minHeight={380}
+                minHeight={370}
                 padding={{ top: 0, left: 0, right: 0 }}
                 backgroundColor={BASE_APP_COLOR_WHITE}
                 showHeader

@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import  { FC, ReactElement } from 'react';
 import { CardContent, makeStyles } from '@material-ui/core';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { BASE_APP_COLOR } from '../../configs/StyleConstants';
@@ -40,6 +40,7 @@ const ResponsiveBarChart: FC<BarChartProps> = (props): ReactElement => {
         <BaseCard
             padding={{ top: 0 }}
             showHeader
+            minHeight={380}
             title={<TitleText size="card">Quiz Performance</TitleText>}
         >
             <CardContent className={classes.cardContent}>
