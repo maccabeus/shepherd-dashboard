@@ -30,52 +30,59 @@ export const SideMenu: FC<any> = (): ReactElement => {
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isMediumView = useMediaQuery(theme.breakpoints.down("md"));
 
-    return (
-        <Sidebar
-            rootStyles={{
-                [`.${sidebarClasses.container}`]: {
-                    paddingTop: PADDING_SIDE,
-                    backgroundColor: COLOR_WHITE,
-                    borderStyle: "none",
-                }
-            }}
-            collapsed={isMobile} // Automatically collapse menu on mobile view
-        >
-            <Menu className={isMobile ? classes.menuBody : ""}>
-                <MenuItem component={<Link to="/#" />} icon={<FaHome />} className={classes.menuItem}>
-                    Home
-                </MenuItem>
-                {isMobile && (
+    if (!isMobile) {
+        return (
+            <Sidebar
+                rootStyles={{
+                    [`.${sidebarClasses.container}`]: {
+                        paddingTop: PADDING_SIDE,
+                        backgroundColor: COLOR_WHITE,
+                        borderStyle: "none",
+                    }
+                }}
+                collapsed={isMediumView}
+            >
+                <Menu className={isMobile ? classes.menuBody : ""}>
+                    <MenuItem component={<Link to="/#" />} icon={<FaHome />} className={classes.menuItem}>
+                        Home
+                    </MenuItem>
+
                     <MenuItem component={<Link to="/test" />} icon={<FaComments />} className={classes.menuItem}>
                         Messages
                     </MenuItem>
-                )}
-                <MenuItem component={<Link to="/#" />} icon={<FaBook />} className={classes.menuItem}>
-                    Library
-                </MenuItem>
-                <Divider className={classes.divider} />
-                <MenuItem component={<Link to="/#" />} icon={<FaQuestionCircle />} className={classes.menuItem}>
-                    Ask Shepherd
-                </MenuItem>
-                <MenuItem component={<Link to="/#" />} icon={<FaChartLine />} className={classes.menuItem}>
-                    Performance
-                </MenuItem>
-                <MenuItem component={<Link to="/#" />} icon={<FaClipboardList />} className={classes.menuItem}>
-                    Study Plans
-                </MenuItem>
-                <MenuItem component={<Link to="/#" />} icon={<FaStickyNote />} className={classes.menuItem}>
-                    Notes
-                </MenuItem>
-                <MenuItem component={<Link to="/#" />} icon={<FaTasks />} className={classes.menuItem}>
-                    Flashcards
-                </MenuItem>
-                <Divider className={classes.divider} />
-                <SubMenu label="Pinned Notes" icon={<FaBook />} className={classes.menuItem}>
-                    <MenuItem component={<Link to="/#" />} className={classes.menuItem}>Note One</MenuItem>
-                    <MenuItem component={<Link to="/#" />} className={classes.menuItem}>Note Two</MenuItem>
-                </SubMenu>
-            </Menu>
-        </Sidebar>
-    );
+
+                    <MenuItem component={<Link to="/#" />} icon={<FaBook />} className={classes.menuItem}>
+                        Library
+                    </MenuItem>
+                    <Divider className={classes.divider} />
+                    <MenuItem component={<Link to="/#" />} icon={<FaQuestionCircle />} className={classes.menuItem}>
+                        Ask Shepherd
+                    </MenuItem>
+                    <MenuItem component={<Link to="/#" />} icon={<FaChartLine />} className={classes.menuItem}>
+                        Performance
+                    </MenuItem>
+                    <MenuItem component={<Link to="/#" />} icon={<FaClipboardList />} className={classes.menuItem}>
+                        Study Plans
+                    </MenuItem>
+                    <MenuItem component={<Link to="/#" />} icon={<FaStickyNote />} className={classes.menuItem}>
+                        Notes
+                    </MenuItem>
+                    <MenuItem component={<Link to="/#" />} icon={<FaTasks />} className={classes.menuItem}>
+                        Flashcards
+                    </MenuItem>
+                    <Divider className={classes.divider} />
+                    <SubMenu label="Pinned Notes" icon={<FaBook />} className={classes.menuItem}>
+                        <MenuItem component={<Link to="/#" />} className={classes.menuItem}>Note One</MenuItem>
+                        <MenuItem component={<Link to="/#" />} className={classes.menuItem}>Note Two</MenuItem>
+                    </SubMenu>
+                </Menu>
+            </Sidebar>
+        );
+    } else {
+        // TODO: in the future we will return a different type of menu
+        return <></>
+    }
+
 };
