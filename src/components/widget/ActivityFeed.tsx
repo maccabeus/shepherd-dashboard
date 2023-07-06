@@ -24,19 +24,19 @@ export interface CardProps {
     children?: Array<ReactChild> | ReactElement | ReactChildren | string
 }
 const ActivityFeed: FC<CardProps> = (props): ReactElement => {
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const customDotIcon: any = { color: COLOR_ORANGE, fontSize: 20 }
     const customButtonIcon: any = { fontSize: 14 }
     const HeaderIcon = () => <BoltIcon style={{ fontSize: 18, color: BASE_APP_COLOR }} />
 
-    const ActionHeader = () => {
-        return (
-            <div className={classes.headerAction}>
-                <AppDatePicker />
-            </div>
-        )
-    }
+    // const ActionHeader = () => {
+    //     return (
+    //         <div className={classes.headerAction}>
+    //             <AppDatePicker />
+    //         </div>
+    //     )
+    // }
 
     return (
         <BaseCard

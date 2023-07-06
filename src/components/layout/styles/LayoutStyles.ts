@@ -1,6 +1,4 @@
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { BASE_APP_COLOR, BASE_APP_COLOR_WHITE, PADDING_SIDE, PADDING_TOP, SIDEBAR_WIDTH } from "../../../configs/StyleConstants";
-
+import { makeStyles} from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 

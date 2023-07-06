@@ -1,4 +1,4 @@
-import React, { FC, ReactChild, ReactChildren, ReactElement, ReactNode, useState } from 'react';
+import  { FC, ReactChild, ReactChildren, ReactElement, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { autoPlay } from 'react-swipeable-views-utils';
 import SwipeableViews from 'react-swipeable-views';

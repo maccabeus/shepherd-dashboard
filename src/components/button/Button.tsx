@@ -1,6 +1,6 @@
 import { FC, ReactChild, ReactChildren, ReactElement } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { BASE_APP_COLOR, BASE_APP_COLOR_WHITE, BUTTON_BORDER_RADIUS, BUTTON_FONT_COLOR_MAIN, BUTTON_FONT_COLOR_WHITE, BUTTON_FONT_PADDING, BUTTON_FONT_SIZE, BUTTON_WIDTH, COLOR_GREY, COLOR_LIGHT_GREEN, COLOR_LIGHT_GREY, FONT_BODY, FONT_LARGE, FONT_MEDIUM, FONT_SMALL, FONT_TINY } from "../../configs/StyleConstants";
+import { BASE_APP_COLOR, BASE_APP_COLOR_WHITE, BUTTON_BORDER_RADIUS, BUTTON_FONT_COLOR_MAIN, BUTTON_FONT_COLOR_WHITE, BUTTON_FONT_PADDING, BUTTON_FONT_SIZE, BUTTON_WIDTH,  COLOR_LIGHT_GREY } from "../../configs/StyleConstants";
 
 export const useTextStyles = makeStyles((theme: Theme) => {
 
