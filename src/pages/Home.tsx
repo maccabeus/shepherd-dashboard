@@ -1,7 +1,6 @@
 import { FC, ReactElement } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import MainLayout from "../components/layout/MainLayout";
-import SideNavigation from "../components/layout/SideNavigation";
 import Body from "../components/layout/Body";
 import { SideMenu } from "../menu/SideMenu";
 import WelcomeWidget from "../components/widget/WelcomeWidget";
