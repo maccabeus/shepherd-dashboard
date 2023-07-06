@@ -2,8 +2,8 @@ import { FC, ReactElement } from "react";
 import { Menu, MenuItem, SubMenu, Sidebar, sidebarClasses } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import { FaHome, FaComments, FaBook, FaQuestionCircle, FaChartLine, FaClipboardList, FaStickyNote, FaTasks } from 'react-icons/fa';
-import { makeStyles } from "@material-ui/core/styles";
-import { BASE_APP_COLOR, COLOR_GREY, COLOR_LIGHT_GREY, COLOR_WHITE, FONT_SMALL, PADDING_SIDE, PADDING_SMALL} from "../configs/StyleConstants";
+import { makeStyles, useTheme, useMediaQuery } from "@material-ui/core";
+import { BASE_APP_COLOR, COLOR_GREY, COLOR_LIGHT_GREY, COLOR_WHITE, FONT_SMALL, PADDING_SIDE, PADDING_SMALL } from "../configs/StyleConstants";
 import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     menuBody: {
-        paddingLeft: PADDING_SMALL,
-        paddingRight: PADDING_SMALL,
+        padding: PADDING_SMALL,
     },
     divider: {
         borderBottom: `1px solid ${COLOR_LIGHT_GREY}`,
@@ -29,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const SideMenu: FC<any> = (): ReactElement => {
     const classes = useStyles();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     return (
         <Sidebar
@@ -39,18 +40,17 @@ export const SideMenu: FC<any> = (): ReactElement => {
                     borderStyle: "none",
                 }
             }}
+            collapsed={isMobile} // Automatically collapse menu on mobile view
         >
-            <Menu className={classes.menuBody}>
+            <Menu className={isMobile ? classes.menuBody : ""}>
                 <MenuItem component={<Link to="/#" />} icon={<FaHome />} className={classes.menuItem}>
                     Home
                 </MenuItem>
-                <SubMenu label="Find a Tutor" icon={<FaQuestionCircle />} className={classes.menuItem}>
-                    <MenuItem component={<Link to="/#" />} className={classes.menuItem}>Online</MenuItem>
-                    <MenuItem component={<Link to="/#" />} className={classes.menuItem}>Offline</MenuItem>
-                </SubMenu>
-                <MenuItem component={<Link to="/test" />} icon={<FaComments />} className={classes.menuItem}>
-                    Messages
-                </MenuItem>
+                {isMobile && (
+                    <MenuItem component={<Link to="/test" />} icon={<FaComments />} className={classes.menuItem}>
+                        Messages
+                    </MenuItem>
+                )}
                 <MenuItem component={<Link to="/#" />} icon={<FaBook />} className={classes.menuItem}>
                     Library
                 </MenuItem>

@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       gridTemplateColumns: "1fr",
     },
+    [theme.breakpoints.down("xs")]: {
+      // Additional breakpoint for smaller screens
+      gridTemplateColumns: "1fr",
+    },
   },
 }));
 
@@ -44,9 +48,7 @@ const Dashboard: FC<any> = (): ReactElement => {
 
   return (
     <MainLayout>
-      <SideNavigation>
-        <SideMenu />
-      </SideNavigation>
+      <SideMenu />
       <Body>
         <Header>
           <WelcomeWidget />
@@ -55,10 +57,10 @@ const Dashboard: FC<any> = (): ReactElement => {
           <div className={classes.dashboardRow}>
             {/* First row starts here */}
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                 <WeeklySummary />
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                 <ResponsiveBarChart data={data} />
               </Grid>
             </Grid>
@@ -67,10 +69,10 @@ const Dashboard: FC<any> = (): ReactElement => {
           <div className={classes.dashboardRow}>
             {/* Second row starts here */}
             <Grid container spacing={4}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} sm={6} md={7}>
                 <ActivityFeed />
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} sm={6} md={5}>
                 <Schedule />
               </Grid>
             </Grid>

@@ -2,8 +2,8 @@ import { FC, ReactChild, ReactChildren, ReactElement } from 'react';
 import { CardContent, makeStyles, Grid, Divider } from '@material-ui/core';
 import TitleText from '../text/TitleText';
 import {
-    BASE_APP_COLOR_WHITE, CARD_BORDER_RADIUS, CARD_MARGIN, CARD_MIN_SUMMARY,CARD_PADDING,
-     COLOR_GREY, COLOR_LIGHT_GREY, COLOR_ORANGE, FONT_BODY, FONT_TITLE, PADDING_SMALL, PADDING_TINY
+    BASE_APP_COLOR_WHITE, CARD_BORDER_RADIUS, CARD_MARGIN, CARD_MIN_SUMMARY, CARD_PADDING,
+    COLOR_GREY, COLOR_LIGHT_GREY, COLOR_ORANGE, FONT_BODY, FONT_TITLE, PADDING_SMALL, PADDING_TINY
 } from '../../configs/StyleConstants';
 import BodyText from '../text/BodyText';
 import InfoIcon from '@mui/icons-material/Info';
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     content: {
         display: "flex",
         flexDirection: "column",
-        flex:1,
+        flex: 1,
         alignItems: "center",
         minHeight: CARD_MIN_SUMMARY,
         height: "auto"
@@ -44,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
     contentLeftHeader: {
         display: "flex",
         flexDirection: "row",
-        marginTop:10,
-        marginBottom:5
+        marginTop: 10,
+        marginBottom: 5
     },
     contentLeftHeaderIcon: {
         marginLeft: 5,
@@ -130,9 +130,9 @@ const WeeklySummary: FC<CardProps> = (props): ReactElement => {
     const carouselItems: CarouselItems = [
         <TimeCard type="mid" value={70} text="You have studied 10m/1hr today" />,
         <TimeCard type="fire"
-         text="You have studied 5m/1hr today" 
-         title="You've learnt for 5 hours this week"
-         />,
+            text="You have studied 5m/1hr today"
+            title="You've learnt for 5 hours this week"
+        />,
         <TimeCard type="zap"
             title="You're on 3 days streak"
             text="Your rating and score have improved!"
