@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement, FC } from 'react';
+import { useState, useEffect, ReactElement, FC } from 'react';
 import { WeatherLogo } from './icon/Weather';
 import TitleText from '../text/TitleText';
 import BodyText from '../text/BodyText';
@@ -55,7 +55,9 @@ export const WelcomeWidget: FC<any> = (props): ReactElement => {
         const intervalId = setInterval(() => {
             const date = new Date();
             const time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const formattedDate = date.toLocaleDateString([]);
+            const options: Intl.DateTimeFormatOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+            const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en-US', options);
+            const formattedDate: string = formatter.format(date);
             setCurrentTime(time);
             setCurrentDate(formattedDate);
         }, 1000);
@@ -72,7 +74,7 @@ export const WelcomeWidget: FC<any> = (props): ReactElement => {
                 <div className={styles.icon}><WeatherLogo /></div>
                 <div className={styles.dot}></div>
                 <div className={styles.infoItem}>
-                    <BodyText size='small' fontWeight={420} >Tuesday, July 21 </BodyText>
+                    <BodyText size='small' fontWeight={420} >{currentDate} </BodyText>
                 </div>
                 <div className={styles.dot}></div>
                 <div className={styles.infoItem}> <BodyText fontWeight={420} size='small'>{currentTime}</BodyText></div>

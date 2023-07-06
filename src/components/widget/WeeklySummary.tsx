@@ -4,8 +4,7 @@ import TitleText from '../text/TitleText';
 import {
     BASE_APP_COLOR_WHITE, CARD_BORDER_RADIUS, CARD_MARGIN, CARD_MIN_SUMMARY,
     CARD_PADDING, COLOR_GREY, COLOR_LIGHT_GREY, COLOR_ORANGE, FONT_BODY, FONT_TITLE,
-    PADDING_SIDE,
-    PADDING_SMALL, PADDING_TINY, PADDING_TOP
+    PADDING_SIDE, PADDING_SMALL, PADDING_TINY
 } from '../../configs/StyleConstants';
 import BodyText from '../text/BodyText';
 import InfoIcon from '@mui/icons-material/Info';
@@ -133,7 +132,10 @@ const WeeklySummary: FC<CardProps> = (props): ReactElement => {
     const carouselItems: CarouselItems = [
         <TimeCard type="mid" value={70} text="You have studied 10m/1hr today" />,
         <TimeCard type="fire" text="You have studied 5m/1hr today" />,
-        <TimeCard type="zap" text="Your rating and score have improved!" />
+        <TimeCard type="zap" 
+        title="You're on 3 days streak"
+        text="Your rating and score have improved!"
+         />
     ]
     return (
         <div style={{ position: "relative" }}>

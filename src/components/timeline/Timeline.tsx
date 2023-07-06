@@ -1,5 +1,5 @@
 import { FC, ReactChild, ReactChildren, ReactElement } from "react";
-import { COLOR_GREY, COLOR_LIGHT_GREY, COLOR_LIGHT_ORANGE } from "../../configs/StyleConstants";
+import { COLOR_LIGHT_GREY, COLOR_LIGHT_ORANGE } from "../../configs/StyleConstants";
 import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';

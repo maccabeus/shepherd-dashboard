@@ -6,6 +6,7 @@ import Zap from "../../assets/images/zap.png"
 import Fire from "../../assets/images/fire.png"
 import CircularProgressbar from '../chart/CircularProgress';
 import BodyText from '../text/BodyText';
+import TitleText from '../text/TitleText';
 
 
 const useStyles = makeStyles({
@@ -65,9 +66,10 @@ export interface TimeCardProps {
   type: "mid" | "zap" | "fire"
   value?: number;
   text?: string
+  title?: string
 }
 
-const CustomProgress: FC<TimeCardProps> = ({ value, text, type }) => {
+const CustomProgress: FC<TimeCardProps> = ({ value, text, type, title }) => {
   const classes = useStyles();
 
   return (
@@ -96,6 +98,10 @@ const CustomProgress: FC<TimeCardProps> = ({ value, text, type }) => {
           </div>
         </div>
       </div>
+      {title && <div className={classes.text}>
+        <TitleText size="small">{text}</TitleText>
+      </div>
+      }
       {text && <div className={classes.text}>
         <BodyText size="body">{text}</BodyText>
       </div>

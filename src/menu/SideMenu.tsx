@@ -3,7 +3,7 @@ import { Menu, MenuItem, SubMenu, Sidebar, sidebarClasses } from "react-pro-side
 import { Link } from "react-router-dom";
 import { FaHome, FaComments, FaBook, FaQuestionCircle, FaChartLine, FaClipboardList, FaStickyNote, FaTasks } from 'react-icons/fa';
 import { makeStyles } from "@material-ui/core/styles";
-import { BASE_APP_COLOR, COLOR_GREY, COLOR_LIGHT_GREY, COLOR_WHITE, FONT_SMALL, PADDING_SIDE, PADDING_SMALL, PADDING_TOP } from "../configs/StyleConstants";
+import { BASE_APP_COLOR, COLOR_GREY, COLOR_LIGHT_GREY, COLOR_WHITE, FONT_SMALL, PADDING_SIDE, PADDING_SMALL} from "../configs/StyleConstants";
 import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
